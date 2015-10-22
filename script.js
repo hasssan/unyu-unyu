@@ -1,6 +1,23 @@
+/*global _,jQuery*/
 (function($){
   var dbName = 'images';
 
+  // initialize
+  function init() {
+    if (store().length) {
+      var data = store();
+      gallery(data);
+
+    } else {
+      fetchImage(function(data) {
+        store(data);
+        gallery(data);
+      })
+    }
+  }
+  init();
+
+  // localStorage Helper
   function store(data){
     if (data) {
       localStorage.setItem(dbName, JSON.stringify(data));
@@ -10,6 +27,7 @@
     return (store && JSON.parse(store)) || [];
   }
 
+  // Get initial data from server
   function fetchImage(callback) {
     $.ajax({
       url: '/data.json',
@@ -17,34 +35,17 @@
     })
   }
 
-  function createItem(item) {
-    return '<div class="col s12 m2">'
-      + '<img id="' + item.id + '" src="http://i.imgur.com/' + item.id + 'b.jpg" class="circle image-item" data-id="' + item.id + '" data-level="' + item.level + '" />'
-      + '</div>'
+  function cuteFilter(level) {
+    var data = store();
+
+    if (typeof level === 'undefined') return data;
+
+    var newData = data.filter(function(element) {
+      return parseInt(element.level) === parseInt(level);
+    })
+
+    return newData;
   }
-
-  function getImages() {
-    if (store().length) {
-      var data = store();
-
-      return data.map(function(item) {
-        var image = createItem(item)
-        $('#collection').append(image);
-      })
-
-    } else {
-      fetchImage(function(data) {
-        store(data)
-
-        return data.map(function(item) {
-          var image = createItem(item)
-          $('#collection').append(image);
-        })
-      })
-    }
-  }
-
-  getImages();
 
   function cute(itemToCuted) {
     var data = store();
@@ -55,8 +56,28 @@
         _.assign({}, item, {level: itemToCuted.level});
     })
 
-    $('#collection').find('#' + itemToCuted.id).data('level', itemToCuted.level);
     store(newData);
+  }
+
+  function createItem(item) {
+    return '<div class="col s12 m2">'
+      + '<img id="' + item.id + '" src="http://i.imgur.com/' + item.id + 'b.jpg" class="circle image-item" data-id="' + item.id + '" data-level="' + item.level + '" />'
+      + '</div>'
+  }
+
+  function addItem(item) {
+    var image = createItem(item)
+    $('#collection').append(image);
+  }
+
+  function deleteGallery() {
+    $('#collection').empty();
+  }
+
+  function gallery(data) {
+    return data.map(function(item) {
+        addItem(item);
+    })
   }
 
   $('#collection').on('click', '.image-item', function() {
@@ -66,10 +87,21 @@
       level = 0;
     }
 
-    cute({
+    var item = {
       id: $(this).data('id'),
       level: level.toString()
-    })
+    };
+
+    cute(item)
+
+    $('#collection').find('#' + item.id).data('level', item.level);
   })
 
-})(window.jQuery)
+  $('#cute-selector').on('click', '.level', function() {
+    var level = $(this).data('level');
+
+    deleteGallery();
+    gallery(cuteFilter(level));
+  })
+
+})(jQuery)
