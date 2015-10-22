@@ -17,6 +17,10 @@ app.get('/data.json', function(req, res) {
   res.sendFile(path.join(__dirname, 'data.json'));
 });
 
+app.get('/star.png', function(req, res) {
+  res.sendFile(path.join(__dirname, 'star.png'));
+});
+
 app.get('/script.js', function(req, res) {
   res.sendFile(path.join(__dirname, 'script.js'));
 });

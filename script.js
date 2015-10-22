@@ -59,10 +59,17 @@
     store(newData);
   }
 
+  function createStar(level) {
+    var star = '<img src="/star.png" class="star">';
+
+    return star.repeat(parseInt(level));
+  }
+
   function createItem(item) {
-    return '<div class="col s12 m2">'
-      + '<img id="' + item.id + '" src="http://i.imgur.com/' + item.id + 'b.jpg" class="circle image-item" data-id="' + item.id + '" data-level="' + item.level + '" />'
-      + '</div>'
+    return '<div id="' + item.id + '" class="col s12 m2 item-container">'
+      + '<img src="http://i.imgur.com/' + item.id + 'b.jpg" class="circle image-item" data-id="' + item.id + '" data-level="' + item.level + '" />'
+      + '<div class="star-container center">' + createStar(item.level) + '</div>'
+      + '</div>';
   }
 
   function addItem(item) {
@@ -94,7 +101,8 @@
 
     cute(item)
 
-    $('#collection').find('#' + item.id).data('level', item.level);
+    $('#collection').find('#' + item.id).find('img').data('level', item.level);
+    $('#collection').find('#' + item.id).find('.star-container').empty().append(createStar(level));
   })
 
   $('#cute-selector').on('click', '.level', function() {

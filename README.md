@@ -1,5 +1,7 @@
 # Cuteness
 
+- https://github.com/JedWatson/classnames
+
 ## Image list
 
 - https://i.imgur.com/gY53UW1.jpg,gY53UW1
@@ -92,3 +94,14 @@ http://i.imgur.com/c7j7PfY.jpg
 http://i.imgur.com/CYRb905.jpg
 http://i.imgur.com/Ib3ROv7.jpg
 http://i.imgur.com/MLW4lEz.jpg
+
+```
+<div class="col s12 m2 item-container">
+  <img src="https://i.imgur.com/gY53UW1b.jpg" class="circle image-item">
+  <div class="star-container center">
+    <img src="/star.png" class="star">
+    <img src="/star.png" class="star">
+    <img src="/star.png" class="star">
+  </div>
+</div>
+```
