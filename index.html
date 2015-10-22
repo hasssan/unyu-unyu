@@ -3,10 +3,38 @@
   <head>
     <title>React Transform Boilerplate</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+
+    <style>
+      .logo {
+        color: #fff;
+        display: inline-block;
+        font-size: 2.1rem;
+        padding: 0;
+        white-space: nowrap
+      }
+      .image-item {
+        width: 160px
+      }
+    </style>
   </head>
   <body>
     <div id='root'>
+      <nav class="light-green" role="navigation">
+        <div class="nav-wrapper container center-align">
+          <a id="logo-container" href="#" class="logo">Logo</a>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="section">
+          <div id="collection" class="row">
+          </div>
+        </div>
+      </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="/static/bundle.js"></script>
+    <script src="/script.js"></script>
   </body>
 </html>

@@ -1,65 +1,40 @@
-React Transform Boilerplate
-=====================
+# Cuteness
 
-A *new* Webpack boilerplate with:
+## Image list
 
-* hot reloading React components;
-* error handling inside component `render()` function;
-* error handling for syntax errors (thanks, **[@glenjamin](https://github.com/glenjamin)**!)
-
-Built with **[babel-plugin-react-transform](https://github.com/gaearon/babel-plugin-react-transform)** and a few custom transforms.  
-**[Does not](https://medium.com/@dan_abramov/the-death-of-react-hot-loader-765fa791d7c4)** use React Hot Loader.
-
-[![react-transform channel on slack](https://img.shields.io/badge/slack-react--transform%40reactiflux-61DAFB.svg?style=flat-square)](http://www.reactiflux.com)
-
-## Demo
-
-![](http://i.imgur.com/AhGY28T.gif)
-
-```
-git clone https://github.com/gaearon/react-transform-boilerplate.git
-cd react-transform-boilerplate
-npm install
-npm start
-open http://localhost:3000
-```
-
-Then go ahead and edit files inside `src` (any file except `index.js`).
-
-## What’s Inside
-
-
-The component instrumentation is implemented on top of **[babel-plugin-react-transform](https://github.com/gaearon/babel-plugin-react-transform)**:
-
-* **[react-transform-hmr](https://github.com/gaearon/react-transform-hmr)** handles hot reloading
-* **[react-transform-catch-errors](https://github.com/gaearon/react-transform-catch-errors)** catches component errors
-
-The syntax errors are displayed in an overlay by **[@glenjamin](https://github.com/glenjamin)**’s **[webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware)** which replaces Webpack Dev Server.
-
-## Troubleshooting
-
-### I can’t serve images / use different HTML file / etc
-
-This boilerplate is just a Webpack bundle served by an Express server. It’s not meant to demonstrate every feature of either project. Please consult Webpack and Express docs to learn how to serve images, or bundle them into your JavaScript application.
-
-### I don’t see the syntax error overlay!
-
-Make sure your react-app is not attached to `document.body` as the client overlay provided by [webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware) will render into `document.body`.
-Attaching the React root node to `document.body` requires extra caution, as many third-party packages will append their markup to the body as well. React will replace the entire contents in the body on every re-render. Thus you will not see the additional markup.
-
-It’s always better to render your React app in a `#root` DOM element.
-
-```js
-import React from 'react'
-import { App } from 'app'
-
-React.render(<App />, document.getElementById('root'))
-```
-
-## Discussion
-
-You can discuss React Transform and related projects in **#react-transform** channel on [Reactiflux Slack](http://reactiflux.com).
-
-## License
-
-CC0 (public domain)
+- https://i.imgur.com/gY53UW1.jpg,gY53UW1
+- https://i.imgur.com/JFITWP7.jpg,JFITWP7
+- https://i.imgur.com/Bk036y2.jpg,Bk036y2
+- https://i.imgur.com/kuMbd2x.jpg,kuMbd2x
+- https://i.imgur.com/pSoQ4sD.jpg,pSoQ4sD
+- https://i.imgur.com/pSoQ4sD.jpg,pSoQ4sD
+- https://i.imgur.com/P7Cbx9u.jpg,P7Cbx9u
+- https://i.imgur.com/f9uA4pU.jpg,f9uA4pU
+- https://i.imgur.com/BIre9Ee.jpg,BIre9Ee
+- https://i.imgur.com/ED4DGeS.jpg,ED4DGeS
+- https://i.imgur.com/JHBu1Ap.jpg,JHBu1Ap
+- https://i.imgur.com/0xsc5VW.jpg,0xsc5VW
+- https://i.imgur.com/zQQ9T2x.jpg,zQQ9T2x
+- https://i.imgur.com/EX01uC0.jpg,EX01uC0
+- https://i.imgur.com/nTWpAH9.jpg,nTWpAH9
+- https://i.imgur.com/32u4bQK.jpg,32u4bQK
+- https://i.imgur.com/5b3PqfW.jpg,5b3PqfW
+- https://i.imgur.com/woCaMjP.jpg,woCaMjP
+- https://i.imgur.com/CYT42zq.jpg,CYT42zq
+- https://i.imgur.com/903eKhG.jpg,903eKhG
+- https://i.imgur.com/MPHJS0z.jpg,MPHJS0z
+- https://i.imgur.com/EA93h3I.jpg,EA93h3I
+- https://i.imgur.com/XKoAta2.jpg,XKoAta2
+- https://i.imgur.com/VHAouSy.jpg,VHAouSy
+- https://i.imgur.com/tIRJnc8.jpg,tIRJnc8
+- https://i.imgur.com/ABWNDml.jpg,ABWNDml
+- https://i.imgur.com/thz2j4P.jpg,thz2j4P
+- https://i.imgur.com/1cz7sq1.jpg,1cz7sq1
+- https://i.imgur.com/qC3NEY9.jpg,qC3NEY9
+- https://i.imgur.com/wgheIJi.jpg,wgheIJi
+- https://i.imgur.com/g3WyB87.jpg,g3WyB87
+- https://i.imgur.com/QtojT73.jpg,QtojT73
+- https://i.imgur.com/hEOjYaq.jpg,hEOjYaq
+- https://i.imgur.com/CAAOFCh.jpg,CAAOFCh
+- https://i.imgur.com/iRZWCH7.jpg,iRZWCH7
+- https://i.imgur.com/VbCCkaO.jpg,VbCCkaO
