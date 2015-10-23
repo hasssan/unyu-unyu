@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Nav } from './Nav';
 import Gallery from './Gallery';
-import { getInitialData, cuted } from './utils';
+import { getInitialData, cuted, cuteFilter } from './utils';
 
 export default class App extends Component {
   constructor() {
@@ -16,7 +16,7 @@ export default class App extends Component {
     });
   }
 
-  handlerCuted = (itemCuted) => {
+  cuted = (itemCuted) => {
     const level = parseInt(itemCuted.level) + 1;
 
     const item = {
@@ -27,14 +27,18 @@ export default class App extends Component {
     this.setState({images: cuted(item)});
   }
 
+  filter = (value) => {
+    this.setState({images: cuteFilter(value)});
+  }
+
   render() {
     return (
       <div className="container">
-        <Nav />
+        <Nav handlerFilter={this.filter} />
         <div className="section"></div>
         <Gallery
           images={this.state.images}
-          handlerCuted={this.handlerCuted}
+          handlerCuted={this.cuted}
         />
       </div>
     );

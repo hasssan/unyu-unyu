@@ -14,7 +14,7 @@ export function store(data){
 export function cuteFilter(level) {
   var data = store();
 
-  if (typeof level === 'undefined') return data;
+  if (level === null) return data;
 
   var newData = data.filter(function(element) {
     return parseInt(element.level) === parseInt(level);
