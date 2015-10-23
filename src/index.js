@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import { getInitialData } from './utils';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const initialData = getInitialData();
+
+ReactDOM.render(<App data={initialData} />, document.getElementById('root'));
