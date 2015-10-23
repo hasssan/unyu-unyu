@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { Nav } from './Nav';
+import Gallery from './Gallery';
 
-export class App extends Component {
+export default class App extends Component {
   render() {
     return (
-      <Nav />
+      <div className="container">
+        <Nav />
+        <div className="section"></div>
+        <Gallery />
+      </div>
     );
   }
 }
