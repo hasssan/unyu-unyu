@@ -36,15 +36,16 @@ export function cuted(itemToCuted) {
 }
 
 // initialize
-export function getInitialData() {
+export function getInitialData(callback) {
   if (store().length) {
-    return store();
+    return callback(store());
 
   } else {
     fetch('/data.json')
       .then(response => response.json())
       .then(json => {
         store(json);
-      })
+        return callback(store());
+    })
   }
 }
