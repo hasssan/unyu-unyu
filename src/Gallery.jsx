@@ -2,13 +2,24 @@ import React from 'react';
 import Image from './Image';
 
 export default class Gallery extends React.Component {
+
+  cuted = (itemCuted) => {
+    this.props.handlerCuted(itemCuted);
+  }
+
   render() {
     const images = this.props.images;
     let renderImages;
 
     if (images.length) {
       renderImages = images.map((item) => {
-          return <Image data={item} key={item.id} />
+        return (
+          <Image
+            key={item.id}
+            data={item}
+            onCuted={this.cuted.bind(this, item)}
+          />
+        )
       })
     }
 

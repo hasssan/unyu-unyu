@@ -33,6 +33,8 @@ export function cuted(itemToCuted) {
   })
 
   store(newData);
+
+  return newData;
 }
 
 // initialize
